@@ -1,7 +1,6 @@
 import pandas as pd
 
-
-result = pd.read_csv("./output3/test_result_2.txt", sep = "\t")
+result = pd.read_csv("./output/test_result_2.txt", sep = "\t")
 result['label'] = result['label'].astype(str)
 result['pred_list'] = result['pred_list'].map(lambda x: x.split(","))
 result['ind'] = result.apply(lambda row: row.pred_list.index(row.label) if row.label in row.pred_list else -1, axis = 1)
